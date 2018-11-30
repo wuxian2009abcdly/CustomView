@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CustomView</string>
+
+    <string name="main_btn_textview">自定义TextView</string>
+    <string name="main_btn_qqstepview">自定义仿QQ运动步数</string>
+
+
+    <string name="textview_test">TextView测试</string>
+
+
+</resources>
