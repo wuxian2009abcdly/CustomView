@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnQqstepview;
     @BindView(R.id.btn_colorTrackView)
     Button btnColorTrackView;
+    @BindView(R.id.btn_progressview)
+    Button btnProgressview;
     @BindView(R.id.btn_ratingbar)
     Button btnRatingbar;
     @BindView(R.id.btn_loadView)
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_textview, R.id.btn_qqstepview, R.id.btn_colorTrackView, R.id.btn_ratingbar, R.id.btn_loadView})
+    @OnClick({R.id.btn_textview, R.id.btn_qqstepview, R.id.btn_colorTrackView, R.id.btn_progressview, R.id.btn_ratingbar, R.id.btn_loadView})
     public void onViewClicked(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -49,6 +51,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_colorTrackView:
                 intent = new Intent(this, ColorTrackActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_progressview:
+                intent = new Intent(this, ProgressViewActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_ratingbar:

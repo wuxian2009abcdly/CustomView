@@ -4,6 +4,7 @@
     <string name="main_btn_textview">自定义TextView</string>
     <string name="main_btn_qqstepview">自定义仿QQ运动步数</string>
     <string name="main_btn_colorTrackView">玩转变色文字</string>
+    <string name="main_btn_progressview">酷炫进度条</string>
     <string name="main_btn_ratingBar">自定义评分View</string>
     <string name="main_btn_loadView">58同城数据加载效果</string>
 

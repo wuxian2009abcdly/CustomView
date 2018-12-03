@@ -31,6 +31,14 @@ public class LoadView extends View {
      */
     private Paint mCirclePaint;
 
+    private Path mPath;
+
+    private Shape mCurrentShape = Shape.Circle;
+
+    public enum Shape {
+        Circle, Rectangle, Triangle
+    }
+
     public LoadView(Context context) {
         this(context, null);
     }
@@ -41,7 +49,6 @@ public class LoadView extends View {
 
     public LoadView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
         mTrianglePaint = new Paint();
         mTrianglePaint.setAntiAlias(true);
         mTrianglePaint.setColor(Color.RED);
@@ -49,12 +56,12 @@ public class LoadView extends View {
 
         mRectanglePaint = new Paint();
         mRectanglePaint.setAntiAlias(true);
-        mTrianglePaint.setColor(Color.BLUE);
+        mRectanglePaint.setColor(Color.BLUE);
         mRectanglePaint.setStyle(Paint.Style.FILL);
 
         mCirclePaint = new Paint();
         mCirclePaint.setAntiAlias(true);
-        mTrianglePaint.setColor(Color.GREEN);
+        mCirclePaint.setColor(Color.GREEN);
         mCirclePaint.setStyle(Paint.Style.FILL);
     }
 
@@ -70,15 +77,42 @@ public class LoadView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        Path trianglePath = new Path();
-        trianglePath.moveTo(0, 0);
-        trianglePath.lineTo(getWidth() / 2, getHeight());
-        trianglePath.lineTo(getWidth(), 0);
-        canvas.drawPath(trianglePath, mTrianglePaint);
-
-        Rect rect = new Rect(0, 0, getWidth(), getHeight());
-        canvas.drawRect(rect, mRectanglePaint);
-
-        canvas.drawCircle(0, 0, getWidth() / 2, mCirclePaint);
+        switch (mCurrentShape) {
+            case Circle:
+                //画圆
+                int center = getWidth() / 2;
+                canvas.drawCircle(center, center, center, mCirclePaint);
+                break;
+            case Rectangle:
+                Rect rect = new Rect(0, 0, getWidth(), getHeight());
+                canvas.drawRect(rect, mRectanglePaint);
+                break;
+            case Triangle:
+                if (mPath == null) {
+                    mPath = new Path();
+                    mPath.moveTo(getWidth() / 2, 0);
+                    mPath.lineTo(0, (float) (getWidth() / 2 * Math.sqrt(3)));
+                    mPath.rLineTo(getWidth(), 0);
+                }
+                canvas.drawPath(mPath, mTrianglePaint);
+                break;
+        }
     }
+
+    public void exchange() {
+        switch (mCurrentShape) {
+            case Circle:
+                mCurrentShape = Shape.Rectangle;
+                break;
+            case Rectangle:
+                mCurrentShape = Shape.Triangle;
+                break;
+            case Triangle:
+                mCurrentShape = Shape.Circle;
+                break;
+        }
+        invalidate();
+    }
+
+
 }

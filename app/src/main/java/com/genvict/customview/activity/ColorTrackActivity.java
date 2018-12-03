@@ -54,9 +54,9 @@ public class ColorTrackActivity extends AppCompatActivity {
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                float present = (Float) animation.getAnimatedValue();
+                float currentProgress = (Float) animation.getAnimatedValue();
                 ctvTest.setDirection(direction);
-                ctvTest.setPercent(present);
+                ctvTest.setCurrentProgress(currentProgress);
             }
         });
         valueAnimator.start();

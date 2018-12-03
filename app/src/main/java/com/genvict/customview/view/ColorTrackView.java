@@ -35,7 +35,7 @@ public class ColorTrackView extends AppCompatTextView {
     /**
      * 百分比
      */
-    private float mPercent;
+    private float mCurrentProgress;
     /**
      * 两种颜色的文字的中间值
      */
@@ -81,7 +81,14 @@ public class ColorTrackView extends AppCompatTextView {
     protected void onDraw(Canvas canvas) {
         //初始化要画的文字的相关坐标
         initPoint();
-        drawText(canvas);
+
+        if (mDirection == Direction.LEFT_TO_RIGHT) {
+            drawText(canvas, mChangePaint, 0, mMiddle);
+            drawText(canvas, mOriginPaint, mMiddle, getWidth());
+        } else {
+            drawText(canvas, mChangePaint, getWidth() - mMiddle, getWidth());
+            drawText(canvas, mOriginPaint, 0, getWidth() - mMiddle);
+        }
     }
 
     /**
@@ -89,10 +96,12 @@ public class ColorTrackView extends AppCompatTextView {
      */
     private void initPoint() {
         mText = getText().toString();
+
         Paint.FontMetricsInt fontMetrics = new Paint.FontMetricsInt();
         int dy = (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom;
         mBaseLine = getHeight() / 2 + dy;
-        mMiddle = (int) (mPercent * getWidth());
+
+        mMiddle = (int) (mCurrentProgress * getWidth());
     }
 
     /**
@@ -100,40 +109,21 @@ public class ColorTrackView extends AppCompatTextView {
      *
      * @param canvas
      */
-    private void drawText(Canvas canvas) {
+    private void drawText(Canvas canvas, Paint paint, int start, int end) {
         canvas.save();
-        if (mDirection == Direction.LEFT_TO_RIGHT) {
-            //画变色文字  从左往右
-            Rect rect = new Rect(0, 0, mMiddle, getHeight());
-            canvas.clipRect(rect);
-            canvas.drawText(mText, 0, mBaseLine, mChangePaint);
-            canvas.restore();
-
-            canvas.save();
-            rect = new Rect(mMiddle, 0, getWidth(), getHeight());
-            canvas.clipRect(rect);
-            canvas.drawText(mText, 0, mBaseLine, mOriginPaint);
-            canvas.restore();
-        } else {
-            //画变色文字  从右往左
-            Rect rect = new Rect(0, 0, getWidth() - mMiddle, getHeight());
-            canvas.clipRect(rect);
-            canvas.drawText(mText, 0, mBaseLine, mOriginPaint);
-            canvas.restore();
-            canvas.save();
-            rect = new Rect(getWidth() - mMiddle, 0, getWidth(), getHeight());
-            canvas.clipRect(rect);
-            canvas.drawText(mText, 0, mBaseLine, mChangePaint);
-            canvas.restore();
-        }
+        //裁剪区域
+        Rect rect = new Rect(start, 0, end, getHeight());
+        canvas.clipRect(rect);
+        canvas.drawText(mText, 0, mBaseLine, paint);
+        canvas.restore();
     }
 
     public void setDirection(Direction mDirection) {
         this.mDirection = mDirection;
     }
 
-    public void setPercent(float percent) {
-        this.mPercent = percent;
+    public void setCurrentProgress(float currentProgress) {
+        this.mCurrentProgress = currentProgress;
         invalidate();
     }
 

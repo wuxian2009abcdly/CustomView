@@ -7,6 +7,7 @@
     tools:context="com.genvict.customview.activity.LoadViewActivity">
 
     <com.genvict.customview.view.LoadView
+        android:id="@+id/loadview"
         android:layout_width="45dp"
         android:layout_height="45dp" />
 

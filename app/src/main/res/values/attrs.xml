@@ -23,6 +23,14 @@
         <attr name="changeColor" format="color" />
     </declare-styleable>
 
+    <declare-styleable name="ProgressView">
+        <attr name="progressOuterColor" format="color" />
+        <attr name="progressInnerColor" format="color" />
+        <attr name="progressBoundWidth" format="dimension" />
+        <attr name="progressTextSize" format="dimension" />
+        <attr name="progressTextColor" format="color" />
+    </declare-styleable>
+
     <declare-styleable name="RatingBar">
         <attr name="starNum" format="integer" />
         <attr name="starInterval" format="dimension"/>
