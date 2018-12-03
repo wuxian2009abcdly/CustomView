@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.genvict.customview.activity.RatingBarActivity">
+
+    <com.genvict.customview.view.RatingBar
+        android:id="@+id/ratingbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:star="@mipmap/od_icon_rate_star_default"
+        app:starDownVote="@mipmap/od_icon_rate_star_down_vote"
+        app:starInterval="@dimen/RatingBar_starInterval"
+        app:starLike="@mipmap/od_icon_rate_star_like"
+        app:starNum="5"
+        app:starUpVote="@mipmap/od_icon_rate_star_up_vote" />
+
+
+</android.support.constraint.ConstraintLayout>

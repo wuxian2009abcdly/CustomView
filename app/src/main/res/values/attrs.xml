@@ -11,11 +11,30 @@
     <declare-styleable name="QQStepView">
         <attr name="stepMax" format="integer" />
         <attr name="currentStep" format="integer" />
-        <attr name="bounds" format="integer" />
+        <attr name="bounds" format="dimension" />
         <attr name="outerColor" format="color" />
         <attr name="innerColor" format="color" />
         <attr name="stepColor" format="color" />
-        <attr name="stepSize" format="integer" />
+        <attr name="stepSize" format="dimension" />
     </declare-styleable>
+
+    <declare-styleable name="ColorTrackView">
+        <attr name="originColor" format="color" />
+        <attr name="changeColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="RatingBar">
+        <attr name="starNum" format="integer" />
+        <attr name="starInterval" format="dimension"/>
+        <attr name="star" format="reference" />
+        <attr name="starDownVote" format="reference" />
+        <attr name="starLike" format="reference" />
+        <attr name="starUpVote" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="LoadView">
+        <attr name="loadSize" format="dimension" />
+    </declare-styleable>
+
 
 </resources>

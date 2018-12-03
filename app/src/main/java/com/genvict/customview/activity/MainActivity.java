@@ -21,6 +21,12 @@ public class MainActivity extends AppCompatActivity {
     Button btnTextview;
     @BindView(R.id.btn_qqstepview)
     Button btnQqstepview;
+    @BindView(R.id.btn_colorTrackView)
+    Button btnColorTrackView;
+    @BindView(R.id.btn_ratingbar)
+    Button btnRatingbar;
+    @BindView(R.id.btn_loadView)
+    Button btnLoadView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_textview, R.id.btn_qqstepview})
+    @OnClick({R.id.btn_textview, R.id.btn_qqstepview, R.id.btn_colorTrackView, R.id.btn_ratingbar, R.id.btn_loadView})
     public void onViewClicked(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -38,7 +44,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.btn_qqstepview:
-                intent = new Intent(this,QQStepViewActivity.class);
+                intent = new Intent(this, QQStepViewActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_colorTrackView:
+                intent = new Intent(this, ColorTrackActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_ratingbar:
+                intent = new Intent(this, RatingBarActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_loadView:
+                intent = new Intent(this, LoadViewActivity.class);
                 startActivity(intent);
                 break;
             default:

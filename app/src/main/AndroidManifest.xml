@@ -16,8 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.TextViewActivity"></activity>
-        <activity android:name=".activity.QQStepViewActivity"></activity>
+        <activity android:name=".activity.TextViewActivity" />
+        <activity android:name=".activity.QQStepViewActivity" />
+        <activity android:name=".activity.ColorTrackActivity" />
+        <activity android:name=".activity.RatingBarActivity" />
+        <activity android:name=".activity.LoadViewActivity"></activity>
     </application>
 
 </manifest>

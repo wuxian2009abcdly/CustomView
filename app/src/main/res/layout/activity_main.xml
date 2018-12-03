@@ -20,4 +20,23 @@
         android:text="@string/main_btn_qqstepview"
         app:layout_constraintTop_toBottomOf="@+id/btn_textview" />
 
+    <Button
+        android:id="@+id/btn_colorTrackView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/main_btn_colorTrackView"
+        app:layout_constraintTop_toBottomOf="@+id/btn_qqstepview" />
+
+    <Button
+        android:id="@+id/btn_ratingbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/main_btn_ratingBar"
+        app:layout_constraintTop_toBottomOf="@+id/btn_colorTrackView" />
+    <Button
+        android:id="@+id/btn_loadView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/main_btn_loadView"
+        app:layout_constraintTop_toBottomOf="@+id/btn_ratingbar" />
 </android.support.constraint.ConstraintLayout>

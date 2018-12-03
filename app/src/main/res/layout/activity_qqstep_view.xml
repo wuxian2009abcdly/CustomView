@@ -8,9 +8,13 @@
 
 
     <com.genvict.customview.view.QQStepView
+        android:id="@+id/qqStepView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:bounds="16dp"
+        app:innerColor="@color/colorAccent"
         app:outerColor="@color/colorPrimary"
-        app:textSize="24" />
+        app:stepColor="@color/colorAccent"
+        app:stepSize="24sp" />
 
 </android.support.constraint.ConstraintLayout>
