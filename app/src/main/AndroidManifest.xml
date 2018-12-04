@@ -21,9 +21,10 @@
         <activity android:name=".activity.TextViewActivity" />
         <activity android:name=".activity.QQStepViewActivity" />
         <activity android:name=".activity.ColorTrackActivity" />
-        <activity android:name=".activity.ProgressViewActivity"/>
+        <activity android:name=".activity.ProgressViewActivity" />
         <activity android:name=".activity.RatingBarActivity" />
         <activity android:name=".activity.LoadViewActivity" />
+        <activity android:name=".activity.LetterIndexViewActivity"></activity>
     </application>
 
 </manifest>

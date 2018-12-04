@@ -6,7 +6,8 @@
     <string name="main_btn_colorTrackView">玩转变色文字</string>
     <string name="main_btn_progressview">酷炫进度条</string>
     <string name="main_btn_ratingBar">自定义评分View</string>
-    <string name="main_btn_loadView">58同城数据加载效果</string>
+    <string name="main_btn_loadView">58同城加载效果</string>
+    <string name="main_btn_letterIndexView">字母索引列表</string>
 
     <string name="textview_test">TextView测试</string>
 

@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnRatingbar;
     @BindView(R.id.btn_loadView)
     Button btnLoadView;
+    @BindView(R.id.btn_letterIndexView)
+    Button btnLetterIndexView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_textview, R.id.btn_qqstepview, R.id.btn_colorTrackView, R.id.btn_progressview, R.id.btn_ratingbar, R.id.btn_loadView})
+    @OnClick({R.id.btn_textview, R.id.btn_qqstepview, R.id.btn_colorTrackView, R.id.btn_progressview, R.id.btn_ratingbar, R.id.btn_loadView, R.id.btn_letterIndexView})
     public void onViewClicked(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -63,6 +65,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_loadView:
                 intent = new Intent(this, LoadViewActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_letterIndexView:
+                intent = new Intent(this, LetterIndexViewActivity.class);
                 startActivity(intent);
                 break;
             default:

@@ -96,6 +96,8 @@ public class LoadView extends View {
                 }
                 canvas.drawPath(mPath, mTrianglePaint);
                 break;
+            default:
+                break;
         }
     }
 
@@ -109,6 +111,8 @@ public class LoadView extends View {
                 break;
             case Triangle:
                 mCurrentShape = Shape.Circle;
+                break;
+            default:
                 break;
         }
         invalidate();
