@@ -3,4 +3,5 @@
     <dimen name="layout_padding">16dp</dimen>
 
     <dimen name="RatingBar_starInterval">8dp</dimen>
+    <dimen name="Letter_size">12sp</dimen>
 </resources>

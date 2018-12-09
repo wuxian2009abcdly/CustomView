@@ -33,7 +33,7 @@
 
     <declare-styleable name="RatingBar">
         <attr name="starNum" format="integer" />
-        <attr name="starInterval" format="dimension"/>
+        <attr name="starInterval" format="dimension" />
         <attr name="star" format="reference" />
         <attr name="starDownVote" format="reference" />
         <attr name="starLike" format="reference" />
@@ -44,5 +44,9 @@
         <attr name="loadSize" format="dimension" />
     </declare-styleable>
 
+    <declare-styleable name="LetterSideBar">
+        <attr name="letterColor" format="color" />
+        <attr name="letterSize" format="dimension" />
+    </declare-styleable>
 
 </resources>

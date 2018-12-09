@@ -54,4 +54,11 @@
         android:layout_height="wrap_content"
         android:text="@string/main_btn_letterIndexView"
         app:layout_constraintTop_toBottomOf="@+id/btn_loadView" />
+
+    <Button
+        android:id="@+id/btn_taglayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/main_btn_taglayout"
+        app:layout_constraintTop_toBottomOf="@+id/btn_loadView" />
 </android.support.constraint.ConstraintLayout>
