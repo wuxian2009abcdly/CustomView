@@ -25,12 +25,16 @@ public class TagLayoutActivity extends AppCompatActivity {
 
         final List<String> tags = new ArrayList<>();
         tags.add("111");
-        tags.add("222");
-        tags.add("333");
-        tags.add("444");
-        tags.add("555");
-        tags.add("666");
-        tags.add("777");
+        tags.add("11111");
+        tags.add("111111");
+        tags.add("111");
+        tags.add("1111111");
+        tags.add("11111111111111111");
+        tags.add("111");
+        tags.add("11");
+        tags.add("111111111");
+        tags.add("1111111111");
+        tags.add("111111111111111");
 
         tagLayout.setAdapter(new BaseAdapter() {
             @Override

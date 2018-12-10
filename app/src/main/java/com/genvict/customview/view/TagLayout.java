@@ -59,23 +59,26 @@ public class TagLayout extends ViewGroup {
 
         //一行的宽度
         int lineWidth = getPaddingLeft();
+
+
+        ArrayList<View> childViews = new ArrayList<>();
+        mChildViews.add(childViews);
         //每一行的最大高度
         int maxHeight = 0;
 
-        //每一行子View的集合
-        List<View> childViews = new ArrayList<>();
         for (int i = 0; i < childCount; i++) {
             //1.1 for循环测量子View
             View childView = getChildAt(i);
+            if (childView.getVisibility() == GONE) {
+                continue;
+            }
             // 这段话执行之后就可以获取子View的宽高，因为会调用子View的onMeasure方法
             measureChild(childView, widthMeasureSpec, heightMeasureSpec);
 
             //margin值 ViewGroup.LayoutParams 没有  就用系统的MarginLayoutParams
             //LinearLayout有自己的 LayoutParams 会复写一个非常重要的方法
             ViewGroup.MarginLayoutParams params = (MarginLayoutParams) childView.getLayoutParams();
-
-            maxHeight = Math.max(childView.getMeasuredHeight() + params.topMargin + params.bottomMargin, maxHeight);
-
+            Log.e("TAG", "leftMargin->" + params.leftMargin + "  topMargin->" + params.topMargin + "    rightMargin->" + params.rightMargin + "  bottomMargin->" + params.bottomMargin);
             //1.2 根据子View计算和指定自己的布局
             //什么时候需要换行，一行不够的情况下 考虑margin
             if (lineWidth + (childView.getMeasuredWidth() + params.leftMargin + params.rightMargin) > width) {
@@ -83,20 +86,17 @@ public class TagLayout extends ViewGroup {
                 height += maxHeight;
                 lineWidth = childView.getMeasuredWidth() + params.leftMargin + params.rightMargin;
                 mMaxHeights.add(maxHeight);
-                maxHeight = childView.getMeasuredHeight();
-                mChildViews.add(childViews);
+                maxHeight = childView.getMeasuredHeight() + params.leftMargin + params.rightMargin;
                 childViews = new ArrayList<>();
-                childViews.add(childView);
+                mChildViews.add(childViews);
             } else {
                 lineWidth += childView.getMeasuredWidth() + params.leftMargin + params.rightMargin;
-                childViews.add(childView);
+                maxHeight = Math.max(childView.getMeasuredHeight() + params.topMargin + params.bottomMargin, maxHeight);
             }
-            if (i == (childCount - 1)) {
-                mChildViews.add(childViews);
-                mMaxHeights.add(maxHeight);
-                height += maxHeight;
-            }
+            childViews.add(childView);
         }
+
+        height += maxHeight;
         Log.e("TAG", "width->" + width + "  height->" + height);
         Log.e("TAG", "mMaxHeights-Size:" + childViews.size());
         //指定自己的宽高
@@ -116,31 +116,36 @@ public class TagLayout extends ViewGroup {
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         int left, top = getPaddingTop(), right, bottom;
 
-        for (int i = 0; i < mChildViews.size(); i++) {
-            List<View> childViews = mChildViews.get(i);
-            int maxHeight = mMaxHeights.get(i);
-            Log.e("TAG", "maxHeight-》" + maxHeight);
+        for (List<View> childViews : mChildViews) {
             left = getPaddingLeft();
+            int maxHeight = 0;
             for (View childView : childViews) {
+                if (childView.getVisibility() == View.GONE) {
+                    continue;
+                }
+
                 ViewGroup.MarginLayoutParams params = (MarginLayoutParams) childView.getLayoutParams();
+                Log.e("TAG", "left-margin-》" + params.leftMargin);
                 left += params.leftMargin;
                 Log.e("TAG", "left-》" + left);
-                int childTop = top + params.topMargin + (maxHeight - childView.getMeasuredHeight()) / 2;
+                int childTop = top + params.topMargin;
                 Log.e("TAG", "childTop-》" + childTop);
                 right = left + childView.getMeasuredWidth();
                 Log.e("TAG", "right-》" + right);
-                bottom = childTop + childView.getMeasuredHeight() + params.bottomMargin + (maxHeight - childView.getMeasuredHeight()) / 2;
+                bottom = childTop + childView.getMeasuredHeight();
                 Log.e("TAG", "bottom-》" + bottom);
 
-//                Log.e("TAG", "left->" + left + "  top->" + childTop + "    right->" + right + "  bottom->" + bottom);
+                Log.e("TAG", "left->" + left + "  top->" + childTop + "    right->" + right + "  bottom->" + bottom);
                 // 摆放
                 childView.layout(left, childTop, right, bottom);
                 // left 叠加
                 left += childView.getMeasuredWidth() + params.rightMargin;
                 Log.e("TAG", "left2-》" + left);
+                // 不断的叠加top值
+                int childHeight = childView.getMeasuredHeight() + params.topMargin + params.bottomMargin;
+                maxHeight = Math.max(maxHeight, childHeight);
             }
             //不断的叠加top值
-            ViewGroup.MarginLayoutParams params = (MarginLayoutParams) childViews.get(0).getLayoutParams();
             top += maxHeight;
             Log.e("TAG", "top2-》" + left);
         }
