@@ -61,4 +61,19 @@
         android:layout_height="wrap_content"
         android:text="@string/main_btn_taglayout"
         app:layout_constraintTop_toBottomOf="@+id/btn_loadView" />
+
+    <Button
+        android:id="@+id/btn_touchview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/main_btn_touchview"
+        app:layout_constraintTop_toBottomOf="@+id/btn_taglayout" />
+
+    <Button
+        android:id="@+id/btn_zoomsideslip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/main_btn_zoomsideslip"
+        app:layout_constraintTop_toBottomOf="@+id/btn_touchview" />
+
 </android.support.constraint.ConstraintLayout>

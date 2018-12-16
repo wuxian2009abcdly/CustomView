@@ -26,7 +26,8 @@
         <activity android:name=".activity.LoadViewActivity" />
         <activity android:name=".activity.LetterSideBarActivity" />
         <activity android:name=".activity.TagLayoutActivity" />
-
+        <activity android:name=".activity.TouchViewActivity" />
+        <activity android:name=".activity.SidingMenuActivity"></activity>
     </application>
 
 </manifest>

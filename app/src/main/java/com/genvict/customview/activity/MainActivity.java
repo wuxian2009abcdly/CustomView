@@ -33,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
     Button btnLetterIndexView;
     @BindView(R.id.btn_taglayout)
     Button btnTaglayout;
+    @BindView(R.id.btn_touchview)
+    Button btnTouchview;
+    @BindView(R.id.btn_zoomsideslip)
+    Button btnZoomsideslip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_textview, R.id.btn_qqstepview, R.id.btn_colorTrackView, R.id.btn_progressview, R.id.btn_ratingbar, R.id.btn_loadView, R.id.btn_letterIndexView, R.id.btn_taglayout})
+    @OnClick({R.id.btn_textview, R.id.btn_qqstepview, R.id.btn_colorTrackView, R.id.btn_progressview, R.id.btn_ratingbar, R.id.btn_loadView, R.id.btn_letterIndexView, R.id.btn_taglayout, R.id.btn_touchview, R.id.btn_zoomsideslip})
     public void onViewClicked(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -75,6 +79,14 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_taglayout:
                 intent = new Intent(this, TagLayoutActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_touchview:
+                intent = new Intent(this, TouchViewActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_zoomsideslip:
+                intent = new Intent(this, SidingMenuActivity.class);
                 startActivity(intent);
                 break;
             default:

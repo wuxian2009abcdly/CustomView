@@ -49,4 +49,12 @@
         <attr name="letterSize" format="dimension" />
     </declare-styleable>
 
+    <declare-styleable name="SlidingMenu">
+        <attr name="menuRightMargin" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="SlidingMenu2">
+        <attr name="menuRightMargin2" format="dimension" />
+    </declare-styleable>
+
 </resources>

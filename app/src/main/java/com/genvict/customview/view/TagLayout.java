@@ -62,7 +62,7 @@ public class TagLayout extends ViewGroup {
 
 
         ArrayList<View> childViews = new ArrayList<>();
-        mChildViews.add(childViews);
+//        mChildViews.add(childViews);
         //每一行的最大高度
         int maxHeight = 0;
 
@@ -87,13 +87,16 @@ public class TagLayout extends ViewGroup {
                 lineWidth = childView.getMeasuredWidth() + params.leftMargin + params.rightMargin;
                 mMaxHeights.add(maxHeight);
                 maxHeight = childView.getMeasuredHeight() + params.leftMargin + params.rightMargin;
-                childViews = new ArrayList<>();
                 mChildViews.add(childViews);
+                childViews = new ArrayList<>();
             } else {
                 lineWidth += childView.getMeasuredWidth() + params.leftMargin + params.rightMargin;
                 maxHeight = Math.max(childView.getMeasuredHeight() + params.topMargin + params.bottomMargin, maxHeight);
             }
             childViews.add(childView);
+            if (i == (childCount - 1)) {
+                mChildViews.add(childViews);
+            }
         }
 
         height += maxHeight;
