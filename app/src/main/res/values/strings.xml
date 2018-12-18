@@ -11,6 +11,7 @@
     <string name="main_btn_taglayout">流式标签布局</string>main_btn_touchview
     <string name="main_btn_touchview">onTouchEvent分析</string>
     <string name="main_btn_zoomsideslip">缩放侧滑控件</string>
+    <string name="main_btn_lockpattern">九宫格密码锁</string>
 
     <string name="textview_test">TextView测试</string>
 

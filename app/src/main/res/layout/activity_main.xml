@@ -76,4 +76,11 @@
         android:text="@string/main_btn_zoomsideslip"
         app:layout_constraintTop_toBottomOf="@+id/btn_touchview" />
 
+    <Button
+        android:id="@+id/btn_lockpattern"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/main_btn_lockpattern"
+        app:layout_constraintTop_toBottomOf="@+id/btn_zoomsideslip" />
+
 </android.support.constraint.ConstraintLayout>

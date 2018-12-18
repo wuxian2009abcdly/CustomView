@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnTouchview;
     @BindView(R.id.btn_zoomsideslip)
     Button btnZoomsideslip;
+    @BindView(R.id.btn_lockpattern)
+    Button btnLockpattern;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_textview, R.id.btn_qqstepview, R.id.btn_colorTrackView, R.id.btn_progressview, R.id.btn_ratingbar, R.id.btn_loadView, R.id.btn_letterIndexView, R.id.btn_taglayout, R.id.btn_touchview, R.id.btn_zoomsideslip})
+    @OnClick({R.id.btn_textview, R.id.btn_qqstepview, R.id.btn_colorTrackView, R.id.btn_progressview, R.id.btn_ratingbar, R.id.btn_loadView, R.id.btn_letterIndexView, R.id.btn_taglayout, R.id.btn_touchview, R.id.btn_zoomsideslip, R.id.btn_lockpattern})
     public void onViewClicked(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -87,6 +89,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_zoomsideslip:
                 intent = new Intent(this, SidingMenuActivity.class);
+                startActivity(intent);
+            case R.id.btn_lockpattern:
+                intent = new Intent(this, LockPatternActivity.class);
                 startActivity(intent);
                 break;
             default:
