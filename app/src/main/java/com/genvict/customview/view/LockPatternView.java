@@ -6,7 +6,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -54,7 +53,7 @@ public class LockPatternView extends View {
             mLockStrokeWidth = array.getDimensionPixelSize(R.styleable.LockPatternView_lockStrokeWidh, mLockStrokeWidth);
             mLockRadius = array.getDimensionPixelSize(R.styleable.LockPatternView_lockRadius, mLockRadius);
             mUnTouchColor = array.getColor(R.styleable.LockPatternView_unTouchColor, Color.GRAY);
-            mTouchColor = array.getColor(R.styleable.LockPatternView_touchColor, ContextCompat.getColor(context, R.color.colorPrimary));
+            mTouchColor = array.getColor(R.styleable.LockPatternView_touchColor, Color.BLUE);
             mUpColor = array.getColor(R.styleable.LockPatternView_upColor, Color.RED);
             array.recycle();
         }
